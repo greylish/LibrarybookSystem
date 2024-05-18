@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "330614065527",
+    "project_id": "library-books-system",
+    "storage_bucket": "library-books-system.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:330614065527:android:daca886604cb2b0ef1b972",
+        "android_client_info": {
+          "package_name": "com.jayson.librarybookssystem"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDHbaE5CyzmHtJ0YUWzPE_qX95JYJ1bFE8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
