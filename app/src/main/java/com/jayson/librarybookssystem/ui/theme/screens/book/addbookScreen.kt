@@ -38,6 +38,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.jayson.librarybookssystem.data.BookViewModel
 import com.jayson.librarybookssystem.navigation.Routes.ROUTE_VIEW_BOOK
+//import com.jayson.librarybookssystem.navigation.Routes.ROUTE_VIEW_BOOK
 import com.jayson.librarybookssystem.navigation.Routes.ROUTE_VIEW_UPLOAD
 
 @Composable
@@ -93,7 +94,7 @@ fun AddbookScreen(navController: NavHostController) {
             val bookRepository = BookViewModel(navController,context)
             bookRepository.savebook(bookSubject.text.trim(),bookForm.text.trim(),
                 bookNo.text)
-             navController.navigate(ROUTE_VIEW_BOOK)
+             //navController.navigate(ROUTE_VIEW_BOOK)
 
 
         }) {

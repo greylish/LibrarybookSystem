@@ -24,8 +24,11 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.jayson.librarybookssystem.R
+import com.jayson.librarybookssystem.data.BookViewModel
 import com.jayson.librarybookssystem.navigation.Routes.ROUTE_ADD_BOOK
 import com.jayson.librarybookssystem.navigation.Routes.ROUTE_VIEW_BOOK
+
+//import com.jayson.librarybookssystem.navigation.Routes.ROUTE_VIEW_BOOK
 
 @Composable
 fun HomeScreen(navController: NavController){
@@ -55,7 +58,7 @@ fun HomeScreen(navController: NavController){
         Button(onClick = {
             navController.navigate(ROUTE_VIEW_BOOK)
         },modifier = Modifier.fillMaxWidth()) {
-            Text(text = "View book")
+            Text(text = "View books")
         }
 
 

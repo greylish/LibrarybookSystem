@@ -93,8 +93,8 @@ fun Uploadbook(subject:String, form:String, bookNo:String,imageUrl:String,
             Text(text = "Delete")
         }
         Button(onClick = {
-            //bookRepository.updatebook(subject,form,bookNo)
-            navController.navigate(ROUTE_UPDATE_BOOK+"/bookNo")
+            bookRepository.updateBook(subject,form,bookNo)
+            //navController.navigate(ROUTE_UPDATE_BOOK+"/bookNo")
 
         }) {
             Text(text = "Update")

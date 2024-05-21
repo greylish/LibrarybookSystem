@@ -22,7 +22,7 @@ class BookViewModel(var navController: NavController, var context: Context) {
     var progress: ProgressDialog
 
 
-init {
+    init {
         authRepository = AuthViewModel(navController, context)
         if (!authRepository.isloggedin()) {
             navController.navigate(ROUTE_LOGIN)
@@ -32,11 +32,11 @@ init {
         progress.setMessage("Please wait...")
     }
 
-fun savebook(subject: String, form: String, bookNo: String) {
+    fun savebook(subject: String, form: String, bookNo: String) {
         var id = System.currentTimeMillis().toString()
         var bookData = book(subject, form, bookNo)
         var bookRef = FirebaseDatabase.getInstance().getReference()
-            .child("book/$bookNo")
+            .child("book/$id")
         progress.show()
         bookRef.setValue(bookData).addOnCompleteListener {
             progress.dismiss()
@@ -49,21 +49,20 @@ fun savebook(subject: String, form: String, bookNo: String) {
         }
     }
 
-fun viewbooks(
-    book: MutableState<Upload>,
-    books: SnapshotStateList<Upload>
+    fun viewbooks(
+        book: MutableState<Upload>,
+        books: SnapshotStateList<Upload>
     ): SnapshotStateList<Upload> {
         val ref = FirebaseDatabase.getInstance().getReference().child("books")
-
         progress.show()
         ref.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 progress.dismiss()
                 books.clear()
                 for (snap in snapshot.children) {
-                    val value = snap.getValue(book::class.java)
-                    //books.value = value!!
-                    //books.add(value)
+                    val value = snap.getValue(Upload::class.java)
+                   book.value = value!!
+                    books.add(value)
                 }
             }
 
@@ -74,7 +73,7 @@ fun viewbooks(
         return books
     }
 
-fun deleteBook(bookNo:String,form: String,subject: String) {
+    fun deleteBook(bookNo: String, form: String, subject: String) {
         var delRef = FirebaseDatabase.getInstance().getReference()
             .child("$subject of class$form no $bookNo has been deleted")
         progress.show()
@@ -88,7 +87,7 @@ fun deleteBook(bookNo:String,form: String,subject: String) {
         }
     }
 
-fun updateBook(bookNo: String, form: String, subject: String) {
+    fun updateBook(bookNo: String, form: String, subject: String) {
         var updateRef = FirebaseDatabase.getInstance().getReference()
             .child("subject:/$subject")
         progress.show()
@@ -102,6 +101,7 @@ fun updateBook(bookNo: String, form: String, subject: String) {
             }
         }
     }
+
 
     fun savebookWithImage(
         subject: String,
@@ -160,3 +160,4 @@ fun viewUploads(
         return uploads
     }
 }
+

@@ -23,7 +23,7 @@ class AuthViewModel(var navController: NavController, var context: Context){
         progress.setMessage("PLease Wait.....")
     }
     fun signup(email:String,pass:String,confirmpass:String){
-      // progress.show()
+       progress.show()
 
         if (email.isBlank() || pass.isBlank() ||confirmpass.isBlank()){
             progress.dismiss()

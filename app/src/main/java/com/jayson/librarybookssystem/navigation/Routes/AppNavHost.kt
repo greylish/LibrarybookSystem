@@ -31,7 +31,8 @@ fun AppNavHost(modifier: Modifier=Modifier,
         composable(ROUTE_ABOUT){ AboutScreen(navController)}
         composable(ROUTE_ADD_BOOK){ AddbookScreen(navController)}
         composable(ROUTE_VIEW_UPLOAD){ ViewUploadScreen(navController) }
-        composable(ROUTE_UPDATE_BOOK){}
+        composable(ROUTE_VIEW_BOOK){}
+        //composable(ROUTE_UPDATE_BOOK){}
         composable(ROUTE_GALLERY){ GalleryScreen(navController)}
     }
 }
